@@ -28,3 +28,8 @@
 /home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/FixerMovie.dll
 /home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/FixerMovie.pdb
 /home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/FixerMovie.csproj.CopyComplete
+/home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/Razor/Views/Movies/Create.g.cshtml.cs
+/home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/Razor/Views/Movies/Delete.g.cshtml.cs
+/home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/Razor/Views/Movies/Details.g.cshtml.cs
+/home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/Razor/Views/Movies/Edit.g.cshtml.cs
+/home/tomas/fixer-test/FixerMovie/obj/Debug/netcoreapp2.2/Razor/Views/Movies/Index.g.cshtml.cs

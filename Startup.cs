@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FixerMovie.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FixerMovie
 {
@@ -30,7 +32,9 @@ namespace FixerMovie
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+  
+         services.AddDbContext<FixerMovieContext>(options =>
+              options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
