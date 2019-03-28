@@ -35,7 +35,8 @@ namespace FixerMovie
   
          services.AddDbContext<FixerMovieContext>(options =>
               options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
-
+            // services.AddDbContext<FixerMovieContext>(options =>
+            //         options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

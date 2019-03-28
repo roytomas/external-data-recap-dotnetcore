@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FixerMovie.Migrations
 {
     [DbContext(typeof(FixerMovieContext))]
-    [Migration("20190328085842_InitialCreate")]
+    [Migration("20190328094101_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
