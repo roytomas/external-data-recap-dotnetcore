@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FixerMovie.Migrations
 {
     [DbContext(typeof(FixerMovieContext))]
-    [Migration("20190328094101_InitialCreate")]
+    [Migration("20190329155422_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,18 +20,32 @@ namespace FixerMovie.Migrations
 
             modelBuilder.Entity("FixerMovie.Models.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Genre");
+                    b.Property<string>("imdb_id");
 
-                    b.Property<decimal>("Price");
+                    b.Property<string>("original_title");
 
-                    b.Property<DateTime>("ReleaseDate");
+                    b.Property<string>("overview");
 
-                    b.Property<string>("Title");
+                    b.Property<double>("popularity");
 
-                    b.HasKey("Id");
+                    b.Property<string>("poster_path");
+
+                    b.Property<decimal>("price");
+
+                    b.Property<DateTime>("release_date");
+
+                    b.Property<int>("revenue");
+
+                    b.Property<int>("runtime");
+
+                    b.Property<string>("status");
+
+                    b.Property<string>("title");
+
+                    b.HasKey("id");
 
                     b.ToTable("Movie");
                 });

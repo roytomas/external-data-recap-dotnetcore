@@ -5,12 +5,24 @@ namespace FixerMovie.Models
 {
     public class Movie
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public int id { get; set; }
+        public string title { get; set; }
+
+        public string original_title{get; set;}
+        public string imdb_id{ get; set;}
 
         [DataType(DataType.Date)]
-        public DateTime ReleaseDate { get; set; }
-        public string Genre { get; set; }
-        public decimal Price { get; set; }
+        public DateTime release_date { get; set; }
+        public string status { get; set; }
+
+        public double popularity {get; set;}
+
+        public string poster_path{ get; set;}
+        public int revenue {get; set;}
+
+        public decimal price {get; set;}
+        public int runtime{ get; set;}
+        
+        public string overview { get; set; }
     }
 }

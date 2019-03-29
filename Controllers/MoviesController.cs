@@ -33,7 +33,7 @@ namespace FixerMovie.Controllers
             }
 
             var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (movie == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace FixerMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Create([Bind("id,title,original_title,imdb_id,release_date,status,popularity,poster_path,revenue,price,runtime,overview")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace FixerMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("id,title,original_title,imdb_id,release_date,status,popularity,poster_path,revenue,price,runtime,overview")] Movie movie)
         {
-            if (id != movie.Id)
+            if (id != movie.id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace FixerMovie.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MovieExists(movie.Id))
+                    if (!MovieExists(movie.id))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace FixerMovie.Controllers
             }
 
             var movie = await _context.Movie
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.id == id);
             if (movie == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace FixerMovie.Controllers
 
         private bool MovieExists(int id)
         {
-            return _context.Movie.Any(e => e.Id == id);
+            return _context.Movie.Any(e => e.id == id);
         }
     }
 }

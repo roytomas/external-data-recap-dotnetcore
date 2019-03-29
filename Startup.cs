@@ -11,7 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FixerMovie.Models;
 using Microsoft.EntityFrameworkCore;
-
+using FixerMovie.Service;
+using FixerMovie.Service.Scheduling;
 namespace FixerMovie
 {
     public class Startup
@@ -33,11 +34,19 @@ namespace FixerMovie
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
   
-         services.AddDbContext<FixerMovieContext>(options =>
-              options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
+            services.AddDbContext<FixerMovieContext>(options => options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
             // services.AddDbContext<FixerMovieContext>(options =>
             //         options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // services.AddSingleton<MovieDataProvider>();
+            // services.AddSingleton<IHostedService,MovieDataRefreshService>();
+            // Add scheduled tasks & scheduler
+            services.AddSingleton<IScheduledTask, MovieDataRefreshTask>();
+            services.AddScheduler((sender, args) =>
+            {
+                Console.Write(args.Exception.Message);
+                args.SetObserved();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +63,7 @@ namespace FixerMovie
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
