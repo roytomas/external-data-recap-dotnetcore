@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,11 +35,8 @@ namespace FixerMovie
             });
   
             services.AddDbContext<FixerMovieContext>(options => options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
-            // services.AddDbContext<FixerMovieContext>(options =>
-            //         options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            // services.AddSingleton<MovieDataProvider>();
-            // services.AddSingleton<IHostedService,MovieDataRefreshService>();
             // Add scheduled tasks & scheduler
             services.AddSingleton<IScheduledTask, MovieDataRefreshTask>();
             services.AddScheduler((sender, args) =>
@@ -66,7 +63,9 @@ namespace FixerMovie
             //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
+            app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -21,7 +21,7 @@ namespace FixerMovie.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("imdb_id");
+                    b.Property<bool>("adult");
 
                     b.Property<string>("original_title");
 
@@ -31,17 +31,15 @@ namespace FixerMovie.Migrations
 
                     b.Property<string>("poster_path");
 
-                    b.Property<decimal>("price");
-
                     b.Property<DateTime>("release_date");
-
-                    b.Property<int>("revenue");
 
                     b.Property<int>("runtime");
 
-                    b.Property<string>("status");
-
                     b.Property<string>("title");
+
+                    b.Property<double>("vote_average");
+
+                    b.Property<int>("vote_count");
 
                     b.HasKey("id");
 

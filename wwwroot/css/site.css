@@ -45,6 +45,15 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+.movie-box{
+  display: flex;
+  margin-bottom:8px; 
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.movie-box:hover{
+  background-color: whitesmoke;
+}
 .footer {
   position: absolute;
   bottom: 0;

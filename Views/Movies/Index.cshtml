@@ -4,92 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>All Movies</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.original_title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.imdb_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.release_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.popularity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.poster_path)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.revenue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.runtime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.overview)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.original_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.imdb_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.release_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.popularity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.poster_path)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.revenue)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.runtime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.overview)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <div class="row">
+            @foreach (var item in Model) {
+                <div id="movieBox" class="col-md-6 movie-box">       
+                    <div class="col-md-5">
+                        <img src= "@Url.Content(item.poster_path)"  style="height:278px;width:185px;"/>
+                    </div>
+                    <div class="col-md-7">
+                        <b>@Html.DisplayFor(modelItem => item.title)</b> 
+                        @Html.DisplayFor(modelItem => item.overview)
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </div>        
+                </div>
+            }
+        </div>
     </tbody>
 </table>

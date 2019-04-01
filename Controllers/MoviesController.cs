@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FixerMovie.Models;
+using FixerMovie.Service;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace FixerMovie.Controllers
 {
@@ -15,7 +17,7 @@ namespace FixerMovie.Controllers
 
         public MoviesController(FixerMovieContext context)
         {
-            _context = context;
+            _context = context;            
         }
 
         // GET: Movies
@@ -53,7 +55,7 @@ namespace FixerMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,title,original_title,imdb_id,release_date,status,popularity,poster_path,revenue,price,runtime,overview")] Movie movie)
+        public async Task<IActionResult> Create([Bind("id,title,original_title,release_date,popularity,poster_path,runtime,overview,adult,vote_count,vote_average")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +87,7 @@ namespace FixerMovie.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,title,original_title,imdb_id,release_date,status,popularity,poster_path,revenue,price,runtime,overview")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("id,title,original_title,release_date,popularity,poster_path,runtime,overview,adult,vote_count,vote_average")] Movie movie)
         {
             if (id != movie.id)
             {

@@ -15,15 +15,14 @@ namespace FixerMovie.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     title = table.Column<string>(nullable: true),
                     original_title = table.Column<string>(nullable: true),
-                    imdb_id = table.Column<string>(nullable: true),
                     release_date = table.Column<DateTime>(nullable: false),
-                    status = table.Column<string>(nullable: true),
                     popularity = table.Column<double>(nullable: false),
                     poster_path = table.Column<string>(nullable: true),
-                    revenue = table.Column<int>(nullable: false),
-                    price = table.Column<decimal>(nullable: false),
                     runtime = table.Column<int>(nullable: false),
-                    overview = table.Column<string>(nullable: true)
+                    overview = table.Column<string>(nullable: true),
+                    adult = table.Column<bool>(nullable: false),
+                    vote_count = table.Column<int>(nullable: false),
+                    vote_average = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
