@@ -16,7 +16,7 @@ namespace FixerMovie
         {
             CreateWebHostBuilder(args).Build().Run();
         }
-//test 
+//test bug fix
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
